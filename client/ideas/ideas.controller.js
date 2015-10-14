@@ -20,7 +20,12 @@ angular
 		function createIdea(idea){
 			idea.userId = $rootScope.currentUser._id;
 			idea.userName = $rootScope.currentUser.profile.name;
-			console.log(idea)
+			
+			idea.isViable = {"yes": 0, "no": 0};
+			idea.isUseful = {"yes": 0, "no": 0};
+
+			idea.voted = [];
+
 			vm.ideasList.push(idea);
 		}
 

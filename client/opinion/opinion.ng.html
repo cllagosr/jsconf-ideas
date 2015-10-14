@@ -1,1 +1,28 @@
-Opinion
+<md-content ng-if="opinion.singleIdea.voted.indexOf($root.currentUser._id) === -1">
+	<md-card>
+		<md-card-content>
+			<h2>{{opinion.singleIdea.title}}</h2>
+			<p>{{opinion.singleIdea.description}}</p>
+			<div layout="column">
+				<div>
+					<small>Creado por: {{opinion.singleIdea.userName}}, en {{opinion.singleIdea.insertDate | date : 'medium'}}</small>
+				</div>
+			</div>
+		</md-card-content>
+		<div layout="row" layout-align="center center">
+			<md-switch ng-model="opinion.parameters.isViable">Es viable?</md-switch>
+			<md-switch ng-model="opinion.parameters.isUseful">Es útil?</md-switch>
+		</div>
+		<div layout="row" layout-align="end center">
+			<md-button ng-click="opinion.save()">Guardar</md-button>
+		</div>
+	</md-card>
+</md-content>
+
+<md-content ng-if="opinion.singleIdea.voted.indexOf($root.currentUser._id) !== -1">
+	<md-card>
+		<md-card-content>
+			<h2>Ya opinaste sobre esta idea!!</h2>
+		</md-card-content>
+	</md-card>
+</md-content>

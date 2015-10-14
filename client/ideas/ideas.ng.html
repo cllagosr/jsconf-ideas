@@ -30,6 +30,12 @@
 				<div>
 					<small>Creado por: {{idea.userName}}, en {{idea.insertDate | date : 'medium'}}</small>
 				</div>
+				<div>
+					<small>Viable: si: {{idea.isViable.yes}}, no: {{idea.isViable.no}}</small>
+				</div>
+				<div>
+					<small>Útil: si: {{idea.isUseful.yes}}, no: {{idea.isUseful.no}}</small>
+				</div>
 			</div>
 		</md-card-content>
 		<div layout="row" layout-align="end center">
