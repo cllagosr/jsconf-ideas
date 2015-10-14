@@ -2,5 +2,6 @@
 	<base href="/">
 </head>
 <body ng-app="app">
-	<div ui-view></div>	
+	<blaze-template name="loginButtons"></blaze-template>
+	<div ui-view ng-if="$root.currentUser"></div>	
 </body>

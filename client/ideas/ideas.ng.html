@@ -1,5 +1,6 @@
 <md-content>
 	<div layout="column" layout-align="center center">
+		<img ng-src="{{$root.currentUser.services.twitter.profile_image_url}}">
 		<form ng-submit="ideas.createIdea(ideas.newIdea)">
 			<div layout="row" layout-align="center center">
 				<md-input-container>
@@ -20,12 +21,19 @@
 <md-content>
 	<md-card ng-repeat="idea in ideas.ideasList">
 		<div layout="row" layout-align="end center">
-			<md-button ng-click="ideas.deleteIdea(idea)">Eliminar</md-button>
+			<md-button ng-if="$root.currentUser._id === idea.userId" ng-click="ideas.deleteIdea(idea)">Eliminar</md-button>
 		</div>
 		<md-card-content>
 			<h2>{{idea.title}}</h2>
 			<p>{{idea.description}}</p>
+			<div layout="column">
+				<div>
+					<small>Creado por: {{idea.userName}}, en {{idea.insertDate | date : 'medium'}}</small>
+				</div>
+			</div>
 		</md-card-content>
-
+		<div layout="row" layout-align="end center">
+			<md-button ng-href="opinion/{{idea._id}}">Opinar</md-button>
+		</div>
 	</md-card>
 </md-content>
