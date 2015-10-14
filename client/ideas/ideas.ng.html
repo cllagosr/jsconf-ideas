@@ -1,1 +1,31 @@
-Hola Mundo {{1+1}}
+<md-content>
+	<div layout="column" layout-align="center center">
+		<form ng-submit="ideas.createIdea(ideas.newIdea)">
+			<div layout="row" layout-align="center center">
+				<md-input-container>
+					<label>Título</label>
+					<input ng-model="ideas.newIdea.title">
+				</md-input-container>
+				<md-input-container>
+					<label>Descripción</label>
+					<input ng-model="ideas.newIdea.description">
+				</md-input-container>
+				<md-button type="submit">Guardar</md-button>
+			</div>
+			
+		</form>
+	</div>
+</md-content>
+
+<md-content>
+	<md-card ng-repeat="idea in ideas.ideasList">
+		<div layout="row" layout-align="end center">
+			<md-button ng-click="ideas.deleteIdea(idea)">Eliminar</md-button>
+		</div>
+		<md-card-content>
+			<h2>{{idea.title}}</h2>
+			<p>{{idea.description}}</p>
+		</md-card-content>
+
+	</md-card>
+</md-content>

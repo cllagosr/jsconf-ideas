@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('app', ['angular-meteor','ui.router'])
+    .module('app', ['angular-meteor', 'ui.router', 'ngMaterial'])
 
 })();
